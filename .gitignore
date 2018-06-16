@@ -4,7 +4,7 @@
 /dist
 /tmp
 /out-tsc
-
+/mock-server/dist
 # dependencies
 /node_modules
 

@@ -1,8 +1,8 @@
-import { ModuleEnabled, RoutesToken } from './interfaces';
-import { RegisterRoutesService } from './services';
-import { ModuleConfig } from './interfaces';
-import { RequestInterceptor } from './requests-interceptor.service';
-import { MockSrvRouter } from './router.service';
+import { ModuleEnabled, RoutesToken } from './interfaces/index';
+import { RegisterRoutesService } from './services/index';
+import { ModuleConfig } from './interfaces/index';
+import { RequestInterceptor } from './services/requests-interceptor.service';
+import { MockSrvRouter } from './services/router.service';
 import { Inject, ModuleWithProviders, NgModule, Provider } from '@angular/core';
 import { HTTP_INTERCEPTORS, HttpClientModule } from '@angular/common/http';
 

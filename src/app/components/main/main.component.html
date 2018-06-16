@@ -1,0 +1,16 @@
+<h2>Users</h2>
+<table>
+  <thead>
+    <tr>
+      <td>Id</td>
+      <td>Username</td>
+    </tr>
+  </thead>
+  <tbody>
+    <tr *ngFor="let user of users$ | async">
+      <td>{{user.id}}</td>
+      <td>{{user.username}}</td>
+    </tr>
+  </tbody>
+</table>
+<router-outlet></router-outlet>

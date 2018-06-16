@@ -1,8 +1,8 @@
-import { AvailableMethod, RouteCallback, RouteDeclaration } from './interfaces';
+import { AvailableMethod, RouteCallback, RouteDeclaration } from '../interfaces/index';
 import { HttpRequest, HttpResponse } from '@angular/common/http';
 import { Injectable } from '@angular/core';
-import { pathtoRegexp } from './path-to-regexp';
-import { MockRequestParameters } from './interfaces';
+import { pathtoRegexp } from '../helpers/path-to-regexp';
+import { MockRequestParameters } from '../interfaces/index';
 
 class Route {
   private static clearQueryString(url: string): string {

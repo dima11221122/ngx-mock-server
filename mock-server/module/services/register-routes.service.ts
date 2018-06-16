@@ -1,6 +1,6 @@
 import { ModuleEnabled, RoutesToken } from '../interfaces/tokens';
 import { RouteDeclaration } from '../interfaces/route';
-import { MockSrvRouter } from '../router.service';
+import { MockSrvRouter } from './router.service';
 import { Inject, Injectable } from '@angular/core';
 import { flatten } from 'lodash';
 
