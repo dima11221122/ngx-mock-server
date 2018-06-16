@@ -6,14 +6,11 @@ import { UsersService } from '../services/users.service';
 @Injectable({
   providedIn: 'root'
 })
-export class UsersResolverService implements Resolve<any> {
+export class UserResolverService implements Resolve<any> {
+  constructor(private users: UsersService) { }
 
-  resolve(route: ActivatedRouteSnapshot, state: RouterStateSnapshot) {
-    return this.users.all();
+  resolve(route: ActivatedRouteSnapshot, state: RouterStateSnapshot): any {
+    return this.users.one(+route.params.id);
   }
 
-  constructor(
-    private users: UsersService
-  ) {
-  }
 }

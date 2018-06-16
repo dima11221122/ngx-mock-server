@@ -1,6 +1,9 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, ViewChild } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
-import { map } from 'rxjs/operators';
+import { debounceTime, map, switchMap } from 'rxjs/operators';
+import { NgForm } from '@angular/forms';
+import { merge } from 'rxjs';
+import { UsersService } from '../../routes/services/users.service';
 
 @Component({
   selector: 'app-main',
@@ -9,12 +12,21 @@ import { map } from 'rxjs/operators';
 })
 export class MainComponent implements OnInit {
   users$;
+  search;
+  @ViewChild('form') form: NgForm;
   constructor(
-    private route: ActivatedRoute
+    private route: ActivatedRoute,
+    private users: UsersService
   ) { }
 
   ngOnInit() {
-    this.users$ = this.route.data.pipe(map(data => data.users));
+    this.users$ = merge(
+      this.route.data.pipe(map(data => data.users)),
+      this.form.valueChanges.pipe(
+        debounceTime(500),
+        switchMap(() => this.users.search(this.search))
+      )
+    );
   }
 
 }

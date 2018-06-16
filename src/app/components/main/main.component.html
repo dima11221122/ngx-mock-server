@@ -8,9 +8,15 @@
   </thead>
   <tbody>
     <tr *ngFor="let user of users$ | async">
-      <td>{{user.id}}</td>
+      <td>
+        <a [routerLink]="['/', user.id]">{{user.id}}</a>
+      </td>
       <td>{{user.username}}</td>
     </tr>
   </tbody>
 </table>
+<form #form="ngForm">
+  <label for="username">Start to enter username: </label>
+  <input type="text" name="username" id="username" [(ngModel)]="search">
+</form>
 <router-outlet></router-outlet>

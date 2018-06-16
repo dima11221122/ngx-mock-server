@@ -3,6 +3,9 @@ import { RouterModule, Routes } from '@angular/router';
 import { MainComponent } from '../components/main/main.component';
 import { UsersResolverService } from './resolvers/users-resolver.service';
 import { MockServerModule } from '../../../mock-server/module';
+import { UserComponent } from '../components/main/user/user.component';
+import { UserResolverService } from './resolvers/user-resolver.service';
+import { UsersService } from './services/users.service';
 
 export const routes: Routes =  [
   {
@@ -12,6 +15,13 @@ export const routes: Routes =  [
       users: UsersResolverService
     },
     children: [
+      {
+        path: ':id',
+        component: UserComponent,
+        resolve: {
+          user: UserResolverService
+        }
+      },
       {
         path: 'lazy',
         loadChildren: './../modules/lazy/lazy.module#LazyModule'
@@ -27,7 +37,9 @@ export const routes: Routes =  [
   ],
   exports: [RouterModule],
   providers: [
-    UsersResolverService
+    UsersService,
+    UsersResolverService,
+    UserResolverService
   ]
 })
 export class AppRoutingModule {}
