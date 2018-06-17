@@ -10,23 +10,34 @@ import { UsersService } from './services/users.service';
 export const routes: Routes =  [
   {
     path: '',
-    component: MainComponent,
-    resolve: {
-      users: UsersResolverService
-    },
     children: [
       {
-        path: ':id',
-        component: UserComponent,
+        path: 'users',
+        component: MainComponent,
         resolve: {
-          user: UserResolverService
-        }
+          users: UsersResolverService
+        },
+        children: [
+          {
+            path: ':id',
+            component: UserComponent,
+            resolve: {
+              user: UserResolverService
+            }
+          },
+        ]
       },
       {
         path: 'lazy',
         loadChildren: './../modules/lazy/lazy.module#LazyModule'
-      }
+      },
+      { path: '', redirectTo: 'users', pathMatch: 'full' }
     ]
+  },
+  {
+    path: '**',
+    redirectTo: 'users',
+    pathMatch: 'full'
   }
 ];
 

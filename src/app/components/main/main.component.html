@@ -1,3 +1,4 @@
+<a routerLink="/lazy">Lazy</a>
 <h2>Users</h2>
 <table>
   <thead>
@@ -9,7 +10,7 @@
   <tbody>
     <tr *ngFor="let user of users$ | async">
       <td>
-        <a [routerLink]="['/', user.id]">{{user.id}}</a>
+        <a [routerLink]="['/users', user.id]">{{user.id}}</a>
       </td>
       <td>{{user.username}}</td>
     </tr>
