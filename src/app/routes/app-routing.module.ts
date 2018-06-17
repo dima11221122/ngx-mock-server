@@ -6,10 +6,12 @@ import { MockServerModule } from '../../../mock-server/module';
 import { UserComponent } from '../components/main/user/user.component';
 import { UserResolverService } from './resolvers/user-resolver.service';
 import { UsersService } from './services/users.service';
+import { MenuComponent } from '../components/menu/menu.component';
 
 export const routes: Routes =  [
   {
     path: '',
+    component: MenuComponent,
     children: [
       {
         path: 'users',

@@ -1,0 +1,17 @@
+@import "~@angular/material/prebuilt-themes/indigo-pink";
+@import '~@angular/material/theming';
+@include mat-core();
+
+.header {
+  background-color: mat-color($mat-indigo, 800);
+  padding-left: 20px;
+}
+
+.header h1 {
+  padding: 28px 8px;
+  color: white;
+}
+
+.content {
+  padding: 28px;
+}

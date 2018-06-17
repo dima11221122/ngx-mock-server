@@ -5,6 +5,7 @@ import { NgForm } from '@angular/forms';
 import { merge, Observable } from 'rxjs';
 import { UsersService } from '../../routes/services/users.service';
 import { User } from '../../models/user';
+import { MatTableDataSource } from '@angular/material';
 
 @Component({
   selector: 'app-main',
@@ -12,7 +13,8 @@ import { User } from '../../models/user';
   styleUrls: ['./main.component.css']
 })
 export class MainComponent implements OnInit {
-  users$: Observable<User[]>;
+  users$: Observable<MatTableDataSource<User>>;
+  displayedColumns = ['id', 'username'];
   search: string;
   @ViewChild('form') form: NgForm;
   constructor(
@@ -27,6 +29,8 @@ export class MainComponent implements OnInit {
         debounceTime(500),
         switchMap(() => this.users.search(this.search))
       )
+    ).pipe(
+      map(data => new MatTableDataSource(data))
     );
   }
 

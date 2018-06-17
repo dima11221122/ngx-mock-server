@@ -1,8 +1,14 @@
 .group {
   display: flex;
   align-items: center;
+  margin-top: 20px;
 }
 
 .group h3 {
   margin-right: 20px;
+}
+
+.header {
+  font-weight: bold;
+  margin-right: 10px;
 }

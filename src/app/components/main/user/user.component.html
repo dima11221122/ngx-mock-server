@@ -1,10 +1,4 @@
-<div *ngIf="user$ | async as user">
-  <div class="group">
-    <div><h3>Id</h3></div>
-    <div>{{user.id}}</div>
-  </div>
-  <div class="group">
-    <div><h3>Username</h3></div>
-    <div>{{user.username}}</div>
-  </div>
+<div class="group" *ngIf="user$ | async as user">
+  <div class="header">Selected: </div>
+  <div>{{user.username}}</div>
 </div>

@@ -1,0 +1,18 @@
+<div class="mat-typography">
+  <div class="header">
+    <h1>Ngx Mock Server</h1>
+  </div>
+  <nav mat-tab-nav-bar>
+    <a mat-tab-link
+       *ngFor="let link of menuItems"
+       [routerLink]="link.path"
+       routerLinkActive #rla="routerLinkActive"
+       [active]="rla.isActive">
+      {{link.label}}
+    </a>
+  </nav>
+
+  <div class="content">
+    <router-outlet></router-outlet>
+  </div>
+</div>
