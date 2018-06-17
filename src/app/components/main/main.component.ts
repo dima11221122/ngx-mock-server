@@ -2,8 +2,9 @@ import { Component, OnInit, ViewChild } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
 import { debounceTime, map, switchMap } from 'rxjs/operators';
 import { NgForm } from '@angular/forms';
-import { merge } from 'rxjs';
+import { merge, Observable } from 'rxjs';
 import { UsersService } from '../../routes/services/users.service';
+import { User } from '../../models/user';
 
 @Component({
   selector: 'app-main',
@@ -11,8 +12,8 @@ import { UsersService } from '../../routes/services/users.service';
   styleUrls: ['./main.component.css']
 })
 export class MainComponent implements OnInit {
-  users$;
-  search;
+  users$: Observable<User[]>;
+  search: string;
   @ViewChild('form') form: NgForm;
   constructor(
     private route: ActivatedRoute,

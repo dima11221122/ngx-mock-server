@@ -1,6 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
 import { map } from 'rxjs/operators';
+import { Observable } from 'rxjs';
+import { User } from '../../../models/user';
 
 @Component({
   selector: 'app-user',
@@ -8,7 +10,7 @@ import { map } from 'rxjs/operators';
   styleUrls: ['./user.component.css']
 })
 export class UserComponent implements OnInit {
-  user$;
+  user$: Observable<User>;
   constructor(private route: ActivatedRoute) { }
 
   ngOnInit() {
