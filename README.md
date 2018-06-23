@@ -1,4 +1,4 @@
-# NgxMockServer
+# ngx-mock-server
 [![npm version](https://badge.fury.io/js/ngx-mock-server.svg)](https://badge.fury.io/js/ngx-mock-server)
 [![GitHub issues](https://img.shields.io/github/issues/dima11221122/ngx-mock-server.svg)](https://github.com/dima11221122/ngx-mock-server/issues)
 [![GitHub forks](https://img.shields.io/github/forks/dima11221122/ngx-mock-server.svg)](https://github.com/dima11221122/ngx-mock-server/network)
