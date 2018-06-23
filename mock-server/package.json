@@ -1,7 +1,7 @@
 {
   "$schema": "./node_modules/ng-packagr/package.schema.json",
   "name": "ngx-mock-server",
-  "version": "1.0.0",
+  "version": "1.2.0",
   "repository": "https://github.com/dima11221122/ngx-mock-server",
   "author": "dimansny <dimansny@gmail.com>",
   "license": "MIT",
@@ -12,13 +12,11 @@
     }
   },
   "dependencies": {
-    "lodash": "^4.17.10",
-    "rxjs": "^5.5.6"
+    "lodash": "^4.17.10"
   },
   "peerDependencies": {
     "@angular/common": "^6.0.3 || ^5.2.3",
     "@angular/core": "^6.0.3 || ^5.2.3",
-    "core-js": "^2.5.4",
-    "zone.js": "^0.8.26"
+    "rxjs": "^6.0.0 || ^5.5.6"
   }
 }

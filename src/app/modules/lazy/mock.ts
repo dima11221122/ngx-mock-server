@@ -1,4 +1,4 @@
-import { json, RouteDeclaration } from '../../../../mock-server/module';
+import { json, RouteDeclaration } from 'ngx-mock-server';
 
 export function itemsCallback() {
   return json(200, [

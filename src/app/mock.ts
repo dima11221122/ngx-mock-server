@@ -1,6 +1,6 @@
-import { json, RouteDeclaration } from '../../mock-server/module/index';
 import { HttpRequest, HttpResponse } from '@angular/common/http';
 import { Observable } from 'rxjs';
+import { RouteDeclaration, json } from 'ngx-mock-server';
 
 const users = [
   { id: 1, username: 'user1' },

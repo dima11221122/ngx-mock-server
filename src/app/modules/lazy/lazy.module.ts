@@ -1,7 +1,7 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { LazyMainComponent } from './components/lazy-main/lazy-main.component';
-import { MockServerModule } from '../../../../mock-server/module';
+import { MockServerModule } from 'ngx-mock-server';
 import { mockRoutes } from './mock';
 import { LazyRoutingModule } from './routes/lazy-routing.module';
 import {

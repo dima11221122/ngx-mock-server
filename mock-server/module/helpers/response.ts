@@ -1,6 +1,5 @@
 import { HttpHeaders, HttpResponse } from '@angular/common/http';
-import { Observable, of } from 'rxjs';
-import { delay } from 'rxjs/operators';
+import { Observable } from 'rxjs';
 
 export function json<T>(status: number, obj: T, timeout = 250): Observable<HttpResponse<T>> {
   const h = new HttpHeaders();
@@ -27,5 +26,10 @@ export function res<T>(status: number, body: T, timeout = 250): Observable<HttpR
 }
 
 export function requestWithDelay<T>(data: HttpResponse<T>, timeout = 250): Observable<HttpResponse<T>> {
-  return of(data).pipe(delay(timeout));
+  return new Observable<HttpResponse<T>>(observer => {
+    setTimeout(() => {
+      observer.next(data);
+      observer.complete();
+    }, timeout);
+  });
 }

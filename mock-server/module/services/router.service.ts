@@ -3,7 +3,7 @@ import { HttpRequest, HttpResponse } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { pathtoRegexp } from '../helpers/path-to-regexp';
 import { MockRequestParameters } from '../interfaces/index';
-import { Observable, of } from 'rxjs';
+import { Observable } from 'rxjs';
 
 class Route {
   private static clearQueryString(url: string): string {
