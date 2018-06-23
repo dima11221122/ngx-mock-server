@@ -95,6 +95,8 @@ export class AppComponent implements OnInit {
 
 ```
 
+[StackBlitz](https://stackblitz.com/edit/angular-iyffif)
+
 ## DEMO
 
 [Here](https://dima11221122.github.io/ngx-mock-server/users)
