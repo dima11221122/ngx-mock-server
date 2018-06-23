@@ -3,6 +3,7 @@ import { HttpRequest, HttpResponse } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { pathtoRegexp } from '../helpers/path-to-regexp';
 import { MockRequestParameters } from '../interfaces/index';
+import { Observable, of } from 'rxjs';
 
 class Route {
   private static clearQueryString(url: string): string {
@@ -35,7 +36,7 @@ class Route {
   }
 
   /** Run the route callback on the request. Make sure matches(req) == true!! */
-  serve(req: HttpRequest<any>): Promise<HttpResponse<any>> {
+  serve(req: HttpRequest<any>): Observable<HttpResponse<any>> {
     const [path, queryParams] = Route.getPathAndQuery(req.url);
     const args = <string[]>this.regex.exec(path);
     args.splice(0, 1);
@@ -59,11 +60,11 @@ export class MockSrvRouter {
   private _routes: Route[] = [];
   private _routesDeclaration: RouteDeclaration[] = [];
 
-  serve(req: HttpRequest<any>): Promise<HttpResponse<any>> {
+  serve(req: HttpRequest<any>): Observable<HttpResponse<any>> {
     let i: number;
     for (i = 0; i < this._routes.length; i++) {
       if (this._routes[i].matches(req)) {
-        const res = Promise.resolve(this._routes[i].serve(req));
+        const res = this._routes[i].serve(req);
         console.log('HTTP REQUEST: ', req, res);
         return res;
       }

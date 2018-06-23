@@ -13,7 +13,8 @@
     "test": "ng test",
     "lint": "ng lint",
     "e2e": "ng e2e",
-    "ngh": "angular-cli-ghpages --repo=https://GH_TOKEN@github.com/dima11221122/ngx-mock-server --dir dist/ngx-mock-server"
+    "ngh": "angular-cli-ghpages --repo=https://GH_TOKEN@github.com/dima11221122/ngx-mock-server --dir dist/ngx-mock-server",
+    "publish": "npm publish mock-server/dist"
   },
   "dependencies": {
     "@angular/animations": "^6.0.5",

@@ -1,17 +1,18 @@
 import { json, RouteDeclaration } from '../../mock-server/module/index';
 import { HttpRequest, HttpResponse } from '@angular/common/http';
+import { Observable } from 'rxjs';
 
 const users = [
   { id: 1, username: 'user1' },
   { id: 2, username: 'user2' }
 ];
 
-export function usersCallback(req?: HttpRequest<any>): Promise<HttpResponse<any>> {
+export function usersCallback(req?: HttpRequest<any>): Observable<HttpResponse<any>> {
   const query = req.params.get('query');
   return json(200, query ? users.filter(it => it.username.match(query)) : users);
 }
 
-export function userCallback(req?: HttpRequest<any>): Promise<HttpResponse<any>> {
+export function userCallback(req?: HttpRequest<any>): Observable<HttpResponse<any>> {
   const id = +req.url.match(/\d+/)[0];
   return json(200, users.find(it => it.id === id));
 }
