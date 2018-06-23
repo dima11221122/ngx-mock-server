@@ -19,5 +19,82 @@ An angular 5+ mock to mock back-end. The package uses http client interceptors m
 ## Getting started
 `npm i ngx-mock-server`
 
+Mock necessary endpoints:
 
-[DEMO](https://dima11221122.github.io/ngx-mock-server/users)
+```typescript
+import { HttpRequest, HttpResponse } from '@angular/common/http';
+import { Observable } from 'rxjs';
+import { RouteDeclaration, json } from 'ngx-mock-server';
+
+const users = [
+  { id: 1, username: 'user1' },
+  { id: 2, username: 'user2' }
+];
+
+export function usersCallback(req) {
+  const query = req.params.get('query');
+  return json(200, [
+    { id: 1, username: 'user1' },
+    { id: 2, username: 'user2' }
+  ]);
+}
+
+export const appMockRoutes: RouteDeclaration[] = [
+  {
+    path: '/users',
+    method: 'GET',
+    callback: usersCallback
+  },
+]
+```
+
+Import MockServerModule with mocked endpoints:
+
+```typescript
+import { NgModule } from '@angular/core';
+import { BrowserModule } from '@angular/platform-browser';
+import { AppComponent } from './app.component';
+import { MockServerModule } from 'ngx-mock-server';
+import { appMockRoutes } from './mock';
+import { HttpClientModule } from '@angular/common/http';
+
+@NgModule({
+  imports:      [ 
+    BrowserModule,
+    HttpClientModule,
+    MockServerModule.forRoot({
+      routes: appMockRoutes,
+      enabled: true
+    })
+  ],
+  declarations: [ AppComponent ],
+  bootstrap:    [ AppComponent ]
+})
+export class AppModule { }
+```
+
+Test!:
+
+```typescript
+import { Component, OnInit } from '@angular/core';
+import { HttpClient } from '@angular/common/http';
+
+@Component({
+  selector: 'my-app',
+  templateUrl: './app.component.html',
+  styleUrls: [ './app.component.css' ]
+})
+export class AppComponent implements OnInit {
+  constructor(private httpClient: HttpClient) {
+  }
+
+  ngOnInit() {
+    this.httpClient.get('/users').subscribe((users) => console.log(users));
+  }
+}
+
+```
+
+##DEMO
+
+[Here](https://dima11221122.github.io/ngx-mock-server/users)
