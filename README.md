@@ -10,11 +10,11 @@
 An angular 5+ mock to mock back-end. The package uses http client interceptors mechanism. It's a really useful package when real back-end isn't available.
 
 ## Features
-- No back-end required
-- Support regexp and strings in routes definitions
-- Support lazy modules
-- Works with Angular 5 and 6
-- Can be disabled from outside
+- No back-end required :no_entry_sign:
+- Support regexp and strings in routes definitions :mega:
+- Support lazy modules :dromedary_camel:
+- Works with Angular 5 and 6 :boom:
+- Can be disabled from outside :cop:
 
 ## Getting started
 `npm i ngx-mock-server`
@@ -95,6 +95,6 @@ export class AppComponent implements OnInit {
 
 ```
 
-##DEMO
+## DEMO
 
 [Here](https://dima11221122.github.io/ngx-mock-server/users)
