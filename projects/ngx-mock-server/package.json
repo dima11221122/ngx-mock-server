@@ -1,0 +1,9 @@
+{
+  "name": "ngx-mock-server",
+  "version": "2.0.0",
+  "peerDependencies": {
+    "@angular/common": ">=5.0.0 <10",
+    "@angular/core": ">=5.0.0 <10",
+    "tslib": "^1.10.0"
+  }
+}

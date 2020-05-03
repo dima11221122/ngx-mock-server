@@ -13,8 +13,9 @@ An angular 5+ mock to mock back-end. The package uses http client interceptors m
 - No back-end required :no_entry_sign:
 - Support regexp and strings in routes definitions :mega:
 - Support lazy modules :dromedary_camel:
-- Works with Angular 5 and 6 :boom:
+- Works with Angular 5+ (including Angular 9) :boom:
 - Can be disabled from outside :cop:
+- Zero-dependency :zero:
 
 ## Getting started
 `npm i ngx-mock-server`
@@ -48,13 +49,13 @@ export const appMockRoutes: RouteDeclaration[] = [
 ]
 ```
 
-Import MockServerModule with mocked endpoints:
+Import `NgxMockServerModule` with mocked endpoints:
 
 ```typescript
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 import { AppComponent } from './app.component';
-import { MockServerModule } from 'ngx-mock-server';
+import { NgxMockServerModule } from 'ngx-mock-server';
 import { appMockRoutes } from './mock';
 import { HttpClientModule } from '@angular/common/http';
 
@@ -62,7 +63,7 @@ import { HttpClientModule } from '@angular/common/http';
   imports:      [ 
     BrowserModule,
     HttpClientModule,
-    MockServerModule.forRoot({
+    NgxMockServerModule.forRoot({
       routes: appMockRoutes,
       enabled: true
     })
